@@ -12,7 +12,7 @@ public class time {
 				h1 = 2;
 				int ih1 = num.indexOf(2);
 				num.remove(ih1);
-				if (num.contains(0) || num.contains(1) || num.contains(3)) {
+				if (num.contains(0) || num.contains(1) || num.contains(2) || num.contains(3)) {
 					if (num.contains(3)) {
 						h2 = 3;
 						int ih2 = num.indexOf(3);
