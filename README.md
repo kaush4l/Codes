@@ -9,3 +9,5 @@ Repeat.java :
 Palindrome.java :
     Counts all palindromes in the given input including the letters itself.
 
+WordCount.java
+     Counts the frequency of words and outputs the first 20 words
