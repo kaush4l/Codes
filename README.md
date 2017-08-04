@@ -5,3 +5,7 @@ Repeat.java :
   
   Time.java :
     Time.java takes in 4 numbers as input and makes maximum possible time with the given input.
+
+Palindrome.java :
+    Counts all palindromes in the given input including the letters itself.
+
