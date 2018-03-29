@@ -8,6 +8,9 @@ Repeat.java :
 
 Palindrome.java :
     Counts all palindromes in the given input including the letters itself.
+    
+Substring.java :
+    This return the longest string of non repeated consecutive characters.
 
 WordCount.java
-     Counts the frequency of words and outputs the first 20 words
+     Counts the frequency of words and outputs the first 20 words.
