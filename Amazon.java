@@ -79,4 +79,17 @@ public class Amazon {
 		}
 		return ans;
 	}
+	
+	
+	public static int minimumTime(int numOfSubFiles, List<Integer> files) {
+		Set<Integer> fileSet = new TreeSet<Integer>(files);
+		int ans = 0;
+		numOfSubFiles = numOfSubFiles <= files.size() ? numOfSubFiles : files.size();
+		for (int num : fileSet) {
+			if (numOfSubFiles == 0)
+				break;
+			ans += (numOfSubFiles == fileSet.size()) ? num * (numOfSubFiles-- - 1) : num * numOfSubFiles--;
+		}
+		return ans;
+	}
 }
