@@ -6,21 +6,14 @@ Other learning resources that may be useful
  - [Learn X in Y minutes](https://learnxinyminutes.com/)
  - [JavaBrains](https://javabrains.io/)
 
-
-## Deck.java:
-    This is a class which can be used to make a standard deck of 52 card. This class sets the value of the face cards(A,J,Q,K) to 10 and other cards to their respective values. We can get cards of specific suite based on the need. A setter for the value is available for games that use different values for the cards.
-
-## Time.java :
-    Time.java takes in 4 numbers as input and makes maximum possible time with the given input.
-
-## Palindrome.java :
-    Counts all palindromes in the given input including the letters itself.
-
-## Repeat.java :
-    This code is to find the first repeated letter in a given string. The programs loops through the string  and  stores the index of the repeated letters. The least index is the first repeated letter.
-
-## Substring.java :
-    This returns the longest string of non repeated consecutive characters.
-
-## WordCount.java
-     Counts the frequency of words and outputs the top 20 words.
+GitRepos for use :
+ - [Build you own X](https://github.com/danistefanovic/build-your-own-x)
+ - [Free programming books](https://github.com/EbookFoundation/free-programming-books)
+ - [OhMyZesh](https://github.com/ohmyzsh/ohmyzsh) community driven interactive shell and scripting language
+ - [CodingInterviewUniversity](https://github.com/jwasham/coding-interview-university)
+ - [.gitignore templates](https://github.com/github/gitignore)
+ - [Software design primer](https://github.com/donnemartin/system-design-primer) helps you design large scale software
+ - [PublicAPIs](https://github.com/public-apis/public-apis)
+ - [The art of command line](https://github.com/jlevy/the-art-of-command-line)
+ - [JS Algos and DS](https://github.com/trekhleb/javascript-algorithms)
+ - [Developer Roadmap](https://github.com/kamranahmedse/developer-roadmap) for learning and DevOps
