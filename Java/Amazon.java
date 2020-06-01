@@ -1,11 +1,15 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.PriorityQueue;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 public class Amazon {
+
+    public static void main(String[] args) {
+        
+    }
 
 	/**
 	 * Amazon question 1
@@ -17,29 +21,36 @@ public class Amazon {
 	 */
 	static List<List<Integer>> ClosestXdestinations(int numDestinations, List<List<Integer>> allLocations,
 			int numDeliveries) {
-		Map<Integer, ArrayList<ArrayList<Integer>>> sortedList = new TreeMap<Integer, ArrayList<ArrayList<Integer>>>();
-		for (List<Integer> locationCoordinates : allLocations) {
-			int distance = distace(locationCoordinates.get(0), locationCoordinates.get(1));
-			List<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
-			if (sortedList.containsKey(distance)) {
-				list = sortedList.get(distance);
-			}
-			list.add((ArrayList<Integer>) locationCoordinates);
-			sortedList.put(distance, (ArrayList<ArrayList<Integer>>) list);
-		}
-		List<List<Integer>> result = new ArrayList<List<Integer>>();
-		for (int key : sortedList.keySet()) {
-			List<ArrayList<Integer>> list = sortedList.get(key);
-			for (ArrayList<Integer> sameDistance : list) {
-				if (numDeliveries > 0) {
-					result.add(sameDistance);
-					numDeliveries--;
-				} else {
-					break;
-				}
-			}
-		}
-		return result;
+        Collections.sort(allLocations, (a , b) -> (a.get(0) * a.get(0) + a.get(1) * a.get(1)) - (b.get(0) * b.get(0) + b.get(1) * b.get(1)));
+        while(allLocations.get(numDestinations) != null) {
+            allLocations.remove(numDestinations);
+        }
+        return allLocations;
+		// Map<Integer, ArrayList<ArrayList<Integer>>> sortedList = new TreeMap<Integer, ArrayList<ArrayList<Integer>>>();
+		// for (List<Integer> locationCoordinates : allLocations) {
+		// 	int distance = distace(locationCoordinates.get(0), locationCoordinates.get(1));
+		// 	List<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
+		// 	if (sortedList.containsKey(distance)) {
+		// 		list = sortedList.get(distance);
+		// 	}
+		// 	list.add((ArrayList<Integer>) locationCoordinates);
+		// 	sortedList.put(distance, (ArrayList<ArrayList<Integer>>) list);
+		// }
+		// List<List<Integer>> result = new ArrayList<List<Integer>>();
+		// for (int key : sortedList.keySet()) {
+		// 	List<ArrayList<Integer>> list = sortedList.get(key);
+		// 	for (ArrayList<Integer> sameDistance : list) {
+		// 		if (numDeliveries > 0) {
+		// 			result.add(sameDistance);
+		// 			numDeliveries--;
+		// 		} else {
+		// 			break;
+		// 		}
+        // 	}
+        // while(numDestinations-- > 0) {
+        //     result.add(numDestinations, allLocations.get(numDestinations));
+        // }
+		// return result;
 	}
 
 	private static int distace(int x, int y) {
@@ -61,7 +72,6 @@ public class Amazon {
 	 */
 	public List<List<Integer>> maxOptimized(int deviceCapacity, List<List<Integer>> foreGroundList,
 			List<List<Integer>> backGroundList) {
-		List<List<Integer>> forw = new ArrayList<List<Integer>>();
 		List<List<Integer>> ans = new ArrayList<List<Integer>>();
 		int max = 0, i = 0;
 		while (i < foreGroundList.size()) {
