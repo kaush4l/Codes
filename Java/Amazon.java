@@ -109,4 +109,36 @@ public class Amazon {
 		}
 		return res;
 	}
+
+	// Given Quotes and popular toys return a list of topToys that wer
+	public static ArrayList<String> popularNToys(int numToys, int topToys, List<String> toys, int numQuotes,
+			List<String> quotes) {
+		TreeMap<Integer, TreeSet<String>> map = new TreeMap<Integer, TreeSet<String>>();
+		TreeSet<String> temp;
+		for (String toy : toys) {
+			int count = 0;
+			for (String quote : quotes) {
+				if (quote.toLowerCase().contains(toy.toLowerCase())) {
+					count++;
+				}
+			}
+			if (count != 0) {
+				temp = map.getOrDefault(numToys - count, new TreeSet<String>());
+				temp.add(toy);
+				map.put(numToys - count, temp);
+			}
+		}
+		ArrayList<String> ans = new ArrayList<String>();
+		for (int rank : map.keySet()) {
+			temp = map.get(rank);
+			for (String toy : temp) {
+				if (topToys-- > 0) {
+					ans.add(toy);
+				}
+				if (topToys == 0)
+					return ans;
+			}
+		}
+		return ans;
+	}
 }
