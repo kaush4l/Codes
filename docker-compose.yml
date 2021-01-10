@@ -1,0 +1,13 @@
+code:
+    image: codercom/code-server
+    container_name: code
+    volumes:
+      - /path/to/projects/:/home/coder/project/
+      - /path/to/code-server/data:/data
+    environment:
+      - PASSWORD=hunter2
+    ports:
+      - "127.0.0.1:8080:8080"
+    command: code-server --allow-http --auth password
+    restart: always
+    
