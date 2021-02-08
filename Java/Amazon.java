@@ -8,7 +8,7 @@ import java.util.TreeSet;
 public class Amazon {
 
 	/**
-	 * Amazon question 1
+	 * Question 1
 	 *
 	 * @param numDestinations
 	 * @param allLocations
@@ -47,7 +47,7 @@ public class Amazon {
 	}
 
 	/**
-	 * Amazon Question 2
+	 * Question 2
 	 * Given a list foreground and background applications that are identified by <ID, MemoryUsed>,
 	 * Find the best pair of foreground and background applications that use the best optimal memory
 	 * that is less the given limit and max for the given combinations
@@ -110,7 +110,7 @@ public class Amazon {
 		return res;
 	}
 
-	// Given Quotes and popular toys return a list of topToys that wer
+	// Given Quotes and popular toys return a list of topToys
 	public static ArrayList<String> popularNToys(int numToys, int topToys, List<String> toys, int numQuotes,
 			List<String> quotes) {
 		TreeMap<Integer, TreeSet<String>> map = new TreeMap<Integer, TreeSet<String>>();
@@ -141,4 +141,75 @@ public class Amazon {
 		}
 		return ans;
 	}
+	
+	// Storage calculator
+	public static long storage(int n, int m, int[] h, int[] v) {
+		HashSet<Integer> x = new HashSet<Integer>();
+		HashSet<Integer> y = new HashSet<Integer>();
+		for (int i = 0; i <= n + 1; i++) 
+			x.add(i);
+		for (int j = 0; j <= m + 1; j++) 
+			y.add(j);
+		for(int i : h) x.remove(i);
+		for(int i : v) y.remove(i);
+		
+		int xMaxDiff = 0;
+		int prev = 0;
+		for(int i : x) {
+			xMaxDiff = (i - prev) > xMaxDiff ? (i - prev) : xMaxDiff;
+			prev = i;
+		}
+		int yMaxDiff = 0;
+		prev = 0;
+		for(int i : y) {
+			yMaxDiff = (i - prev) > yMaxDiff ? (i - prev) : yMaxDiff;
+			prev = i;
+		}
+		return xMaxDiff * yMaxDiff;
+	}
+	
+	// Cloudfront Caching
+	public static int connectedSum(int n, List<String> edges) {
+        Map<Integer, Node> map = new HashMap<>();
+        for(int i = 1; i <= n; i++) {
+            map.put(i, new Node(i));
+        }
+        for(String edge : edges) {
+            String[] nums = edge.split(" ",2);
+            int a = Integer.parseInt(nums[0]);
+            int b = Integer.parseInt(nums[1]);
+            map.get(a).neighbors.add(map.get(b));
+            map.get(b).neighbors.add(map.get(a));
+        }
+        ArrayList<Integer> visited = new ArrayList<>();
+        double ans = 0;
+        for(int node: map.keySet()) {
+            if(!visited.contains(node)) {
+                visited.add(node);
+                int weight = calculate(map.get(node), visited, 1);
+                ans += Math.ceil(Math.sqrt(weight));
+            }
+        }
+        return (int) ans;
+    }
+    public static int calculate(Node n, ArrayList<Integer> visited, int weight) {
+        for(Node neighbor: n.neighbors) {
+            if(!visited.contains(neighbor.data)) {
+                visited.add(neighbor.data);
+                weight = calculate(neighbor, visited, weight)+1;
+            }
+        }
+        return weight;
+    }
+
+    public static class Node {
+        public int data;
+        public List<Node> neighbors = new ArrayList<>();
+        public Node(int d) {
+            data = d;
+        }
+    }
+	
+	
+	
 }
