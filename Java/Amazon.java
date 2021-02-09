@@ -142,7 +142,9 @@ public class Amazon {
 		return ans;
 	}
 	
-	// Storage calculator
+	// Storage optimization
+	// Given a storage with a block of (1x1x1) storage, we are given a matrix of NxM
+	// and H, V represting the rods in the matrix to remove, calculate the biggest storage block that can be formed
 	public static long storage(int n, int m, int[] h, int[] v) {
 		HashSet<Integer> x = new HashSet<Integer>();
 		HashSet<Integer> y = new HashSet<Integer>();
@@ -169,6 +171,8 @@ public class Amazon {
 	}
 	
 	// Cloudfront Caching
+	// Cloufront wants to build an efficient caching algorithm. So when given a set of connected nodes,
+	// ans = Math.ceil(Math.sqrt(sum of connected node)) // for all nodes
 	public static int connectedSum(int n, List<String> edges) {
         Map<Integer, Node> map = new HashMap<>();
         for(int i = 1; i <= n; i++) {
@@ -209,8 +213,9 @@ public class Amazon {
             data = d;
         }
     }
-	// Is the robot path a circle
-	public boolean isRobotBounded(String instructions) {
+	
+    // Is the robot path a circle
+    public boolean isRobotBounded(String instructions) {
         int x = 0;
         int y = 0;
         int dir = 0;
