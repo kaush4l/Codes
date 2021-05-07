@@ -240,4 +240,24 @@ public class Amazon {
         return (x == 0 && y == 0) || (dir != 0);
     }
 	
+	// |**|*|*
+	// Given a string and start and end indexes, give the number of items between the '|'
+	public static List<Integer> numberOfItems(String s, List<Integer> startIndices, List<Integer> endIndices) {
+		String calculate = "";
+		int occurance = 0;
+		for (char c : s.toCharArray()) {
+			if (c != '|') {
+				occurance++;
+			}
+			calculate += occurance;
+		}
+		List<Integer> ans = new ArrayList<Integer>();
+		for (int i = 0; i < startIndices.size(); i++) {
+			String sub = s.substring(0, endIndices.get(i));
+			int start = calculate.charAt(sub.indexOf('|', startIndices.get(i) - 1));
+			int end = calculate.charAt(sub.lastIndexOf('|'));
+			ans.add(end - start);
+		}
+		return null;
+	}
 }
