@@ -281,7 +281,7 @@ public class Amazon {
      * @return number of combinations possible
      */
     public static int divisibility(String s) {
-        return calculate(getNumbers(s), s.length(), 0);
+        return calculate(getNumbers(s), s.length() - 1, 0);
     }
     public static ArrayList<Integer> getNumbers(String s) {
         int number = Integer.parseInt(s);
@@ -293,12 +293,12 @@ public class Amazon {
         return digits;
     }
     public static int calculate(ArrayList<Integer> digits, int index, int count) {
-        if(index < 1) return count;
+        if(index < 0) return count;
         int sum = 0;
         for(int i = 0; i < digits.size(); i++)
             sum += (i == index) ? 0 : digits.get(i);
         if(sum % 3 == 0) count += 4;
         else count += 3;
-        return calculate(digits, index -1, count);
+        return calculate(digits, index - 1, count);
     }
 }
