@@ -1,21 +1,27 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
+/**
+ * Deck class to create a deck, shuffle and filter based on suite
+ */
 public class Deck {
 
 	private ArrayList<Card> allCards = new ArrayList<Card>();
 
 	public Deck() {
-		Suit[] suit = Suit.values();
-		for (int i = 1; i <= 13; i++) {
-			for (Suit s : suit) {
-				allCards.add(new Card(s, i));
-			}
-		}
+		Stream.of(Suit.values()).forEach(s -> IntStream.rangeClosed(1, 13).forEach(i -> allCards.add(new Card(s, i))));
 	}
 
 	public ArrayList<Card> getSuits(Suit suit) {
 		return (ArrayList<Card>) allCards.stream().filter(s -> s.getSuite() == suit).collect(Collectors.toList());
+	}
+
+	public ArrayList<Card> shuffle() {
+		Collections.shuffle(allCards);
+		return allCards;
 	}
 
 	public ArrayList<Card> getAllCards() {
@@ -32,10 +38,6 @@ class Card {
 
 	public int getNum() {
 		return num;
-	}
-
-	public void setScore(int score) {
-		this.score = score;
 	}
 
 	public int getScore() {
