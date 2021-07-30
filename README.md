@@ -5,6 +5,7 @@ The folder for languages is like a learning cheatsheet to languages and technolo
 Other learning resources that may be useful
  - [Learn X in Y minutes](https://learnxinyminutes.com/)
  - [JavaBrains](https://javabrains.io/)
+ - [Java Threading](https://medium.com/edureka/java-thread-bfb08e4eb691)
 
 GitRepos for use :
  - [Build you own X](https://github.com/danistefanovic/build-your-own-x)
